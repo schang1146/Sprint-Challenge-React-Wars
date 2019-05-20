@@ -1,17 +1,31 @@
 import React from 'react';
 
-class StarWarsCharacter extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
+const StarWarsCharacter = props => {
         return (
-            <div className='character'>
-                {this.props.character.name}
+            <div className='character' onClick={() => props.toggleInfo(props.character.name, props.showInfo)}>
+                <h2 className='character-name'>{props.character.name}</h2>
+                <ul className={`character-info${props.showInfo ? '' : ' hidden'}`}>
+                    <li>
+                        <strong>Birth Year:</strong> {props.character.birth_year}
+                    </li>
+                    <li>
+                        <strong>Gender: </strong> {props.character.gender}
+                    </li>
+                    <li>
+                        <strong>Height: </strong> {props.character.height}
+                    </li>
+                    <li>
+                        <strong>Mass: </strong> {props.character.mass}
+                    </li>
+                    <li>
+                        <strong>Skin Color: </strong> {props.character.skin_color}
+                    </li>
+                    <li>
+                        <strong>Eye Color: </strong> {props.character.eye_color}
+                    </li>
+                </ul>
             </div>
-        );
-    };
+    );
 };
 
 export default StarWarsCharacter;
