@@ -4,14 +4,14 @@ import './StarWars.css';
 
 class StarWarsCharacterList extends React.Component {
 
+    // broken
     toggleInfo = (characterId, showInfo) => {
         this.setState({
             character: this.props.starwarsChars.map(character => {
-                console.log(showInfo)
                 if (characterId === character.name) {
                     return {
                         ...character,
-                        showInfo: !showInfo,
+                        showInfo: !this.props.showInfo,
                     };
                 }
                 return character;
