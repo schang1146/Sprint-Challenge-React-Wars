@@ -10,7 +10,6 @@ class StarWarsCharacterList extends React.Component {
         }
     }
 
-    // // broken
     toggleInfo = (characterId) => {
         console.log(this)
         this.setState({
