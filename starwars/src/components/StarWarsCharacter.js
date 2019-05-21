@@ -2,7 +2,7 @@ import React from 'react';
 
 const StarWarsCharacter = props => {
         return (
-            <div className='character' onClick={() => props.toggleInfo(props.character.name, props.showInfo)}>
+            <div className='character' onClick={(e) => props.toggleInfo(props.character.name, e)}>
                 <h2 className='character-name'>{props.character.name}</h2>
                 <ul className={`character-info${props.showInfo ? '' : ' hidden'}`}>
                     <li>

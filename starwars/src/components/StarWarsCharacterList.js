@@ -3,18 +3,22 @@ import StarWarsCharacter from './StarWarsCharacter';
 import './StarWars.css';
 
 class StarWarsCharacterList extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            showInfo: [false, false, false, false, false, false, false, false, false, false],
+        }
+    }
 
-    // broken
-    toggleInfo = (characterId, showInfo) => {
+    // // broken
+    toggleInfo = (characterId) => {
+        console.log(this)
         this.setState({
-            character: this.props.starwarsChars.map(character => {
-                if (characterId === character.name) {
-                    return {
-                        ...character,
-                        showInfo: !this.props.showInfo,
-                    };
+            showInfo: this.state.showInfo.map((show, idx) => {
+                if (characterId === this.props.starwarsChars[idx].name) {
+                    return !show
                 }
-                return character;
+                return show
             })
         })
     }
@@ -22,8 +26,8 @@ class StarWarsCharacterList extends React.Component {
     render() {
         return (
             <div className='character-list'>
-                {this.props.starwarsChars.map(character => (
-                    <StarWarsCharacter key={character.name} character={character} toggleInfo={this.toggleInfo} showInfo={false} />
+                {this.props.starwarsChars.map((character, idx) => (
+                    <StarWarsCharacter key={character.name} character={character} toggleInfo={this.toggleInfo} showInfo={this.state.showInfo[idx]} />
                 ))}
             </div>
         );
